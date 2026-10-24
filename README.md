@@ -1,6 +1,6 @@
 # SQL Data Warehouse & Analytics Project
 
-[![CI](https://github.com/parthdhawan921-ops/sql-data-warehouse-project/actions/workflows/ci.yml/badge.svg)](https://github.com/parthdhawan921-ops/sql-data-warehouse-project/actions/workflows/ci.yml)
+[![CI](https://github.com/parthdhawan921-ops/sql-data-warehouse-analytics/actions/workflows/ci.yml/badge.svg)](https://github.com/parthdhawan921-ops/sql-data-warehouse-analytics/actions/workflows/ci.yml)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0%2B-4479A1?logo=mysql&logoColor=white)
 ![SQL](https://img.shields.io/badge/Language-SQL-336791)
 ![Architecture](https://img.shields.io/badge/Architecture-Medallion-CD7F32)
