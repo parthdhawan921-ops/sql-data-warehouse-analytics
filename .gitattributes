@@ -1,2 +1,5 @@
 # Source CSVs use CRLF line endings; the Bronze load expects them unchanged.
 *.csv -text
+
+# Count SQL files in the repository language stats.
+*.sql linguist-detectable=true
