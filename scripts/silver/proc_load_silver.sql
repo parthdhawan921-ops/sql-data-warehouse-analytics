@@ -125,9 +125,12 @@ SELECT
     END,
 
     CASE
-        WHEN sls_sales IS NULL
+        -- Recalculate only when a usable price exists: empty CSV prices load
+        -- as 0 in MySQL, and recalculating from them would zero out sales.
+        WHEN (sls_sales IS NULL
           OR sls_sales<=0
-          OR sls_sales<>sls_quantity*ABS(sls_price)
+          OR sls_sales<>sls_quantity*ABS(sls_price))
+         AND NULLIF(sls_price,0) IS NOT NULL
         THEN sls_quantity*ABS(sls_price)
         ELSE sls_sales
     END,

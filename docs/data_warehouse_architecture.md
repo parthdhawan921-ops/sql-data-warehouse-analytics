@@ -51,5 +51,3 @@ The Gold layer is designed to support:
 - BI & Reporting
 - Ad-hoc SQL queries
 - Analytics and downstream analytical use cases
-
-> The architecture diagram is also represented in the project documentation PDFs supplied with this repository.
