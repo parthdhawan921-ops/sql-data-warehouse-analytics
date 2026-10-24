@@ -13,13 +13,14 @@ Tables Used:
 ===============================================================================
 */
 
--- Retrieve a list of all tables in the current database
+-- Retrieve a list of all tables and views across the warehouse layers
 SELECT 
     TABLE_SCHEMA,
     TABLE_NAME,
     TABLE_TYPE
 FROM INFORMATION_SCHEMA.TABLES
-WHERE TABLE_SCHEMA = DATABASE();
+WHERE TABLE_SCHEMA IN ('bronze', 'silver', 'gold')
+ORDER BY TABLE_SCHEMA, TABLE_NAME;
 
 
 -- Retrieve all columns for a specific table (dim_customers)
@@ -29,6 +30,6 @@ SELECT
     IS_NULLABLE,
     CHARACTER_MAXIMUM_LENGTH
 FROM INFORMATION_SCHEMA.COLUMNS
-WHERE TABLE_SCHEMA = DATABASE()
+WHERE TABLE_SCHEMA = 'gold'
   AND TABLE_NAME = 'dim_customers'
 ORDER BY ORDINAL_POSITION;
