@@ -1,0 +1,2 @@
+# Source CSVs use CRLF line endings; the Bronze load expects them unchanged.
+*.csv -text
