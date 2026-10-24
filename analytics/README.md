@@ -1,12 +1,10 @@
-# SQL Exploratory Data Analysis
+# Analytics: SQL Exploratory Data Analysis
 
-> Part of the [SQL Data Warehouse & Analytics Project](../README.md). These scripts run on the Gold layer (`gold.dim_customers`, `gold.dim_products`, `gold.fact_sales`) built by the warehouse in [`../scripts/`](../scripts/).
-
-> A structured **MySQL 8.0+ exploratory data analysis project** that turns customer, product, and sales data into actionable business insights using advanced SQL.
+> Part of the [SQL Data Warehouse & Analytics Project](../README.md). These **MySQL 8.0+** scripts run on the Gold layer (`gold.dim_customers`, `gold.dim_products`, `gold.fact_sales`) built by the warehouse in [`../scripts/`](../scripts/). They turn customer, product, and sales data into business insights using advanced SQL.
 
 ## 📌 Overview
 
-This project is organized as a progression from basic database exploration to reusable customer and product reporting. The analysis covers:
+This module is organized as a progression from basic database exploration to reusable customer and product reporting. The analysis covers:
 
 - Database and dimension exploration
 - Date-range and magnitude analysis
@@ -79,7 +77,7 @@ analytics/
 ## ▶️ How to Use
 
 1. Install **MySQL 8.0+** and connect using MySQL Workbench or another SQL client.
-2. Build the warehouse first (Bronze → Silver → Gold) by following the [How to Run](../README.md#️-how-to-run) steps in the root README.
+2. Build the warehouse first (Bronze → Silver → Gold) by following the [Getting Started](../README.md#-getting-started) steps in the root README.
 3. Run the scripts in numerical order.
 4. Review the result sets and adapt filters/groupings for additional analysis.
 5. Use the reporting scripts as reusable starting points for customer and product analysis.
@@ -90,7 +88,7 @@ analytics/
 
 ## 📈 Business Questions Answered
 
-Examples of questions addressed by the project include:
+Examples of questions addressed by this module include:
 
 - What are the overall sales and order KPIs?
 - Which products and customers contribute the most revenue?
