@@ -1,4 +1,6 @@
-# SQL Exploratory Data Analysis Project
+# SQL Exploratory Data Analysis
+
+> Part of the [SQL Data Warehouse & Analytics Project](../README.md). These scripts run on the Gold layer (`gold.dim_customers`, `gold.dim_products`, `gold.fact_sales`) built by the warehouse in [`../scripts/`](../scripts/).
 
 > A structured **MySQL 8.0+ exploratory data analysis project** that turns customer, product, and sales data into actionable business insights using advanced SQL.
 
@@ -53,7 +55,7 @@ This project is organized as a progression from basic database exploration to re
 ## 🗂️ Project Structure
 
 ```text
-sql-exploratory-data-analysis-project/
+analytics/
 │
 ├── scripts/
 │   ├── 01_database_exploration.sql
@@ -77,7 +79,7 @@ sql-exploratory-data-analysis-project/
 ## ▶️ How to Use
 
 1. Install **MySQL 8.0+** and connect using MySQL Workbench or another SQL client.
-2. Load the source analytical dataset into your MySQL environment.
+2. Build the warehouse first (Bronze → Silver → Gold) by following the [How to Run](../README.md#️-how-to-run) steps in the root README.
 3. Run the scripts in numerical order.
 4. Review the result sets and adapt filters/groupings for additional analysis.
 5. Use the reporting scripts as reusable starting points for customer and product analysis.

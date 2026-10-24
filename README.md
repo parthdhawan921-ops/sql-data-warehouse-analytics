@@ -1,14 +1,15 @@
-# SQL Data Warehouse Project — MySQL
+# SQL Data Warehouse & Analytics Project — MySQL
 
-> A portfolio-grade SQL data warehouse built with **MySQL 8.0+**, using a **Bronze → Silver → Gold (Medallion)** architecture to transform raw CRM and ERP data into a reporting-ready **Star Schema**.
+> An end-to-end, portfolio-grade SQL project built with **MySQL 8.0+**: a **Bronze → Silver → Gold (Medallion)** data warehouse transforms raw CRM and ERP data into a reporting-ready **Star Schema**, and an **exploratory data analysis (EDA) layer** turns that Star Schema into business insights and reusable reports.
 
 ## 📌 Project Overview
 
-This project demonstrates an end-to-end data warehousing workflow:
+This project covers the full journey from raw files to insights in two parts:
 
-**CSV source data → Bronze (raw) → Silver (cleaned) → Gold (business-ready) → BI / analytics**
+**CSV source data → Bronze (raw) → Silver (cleaned) → Gold (business-ready) → SQL analytics / BI**
 
-The Gold layer exposes analytical views for **customers, products, and sales**, designed for reporting and BI tools such as Power BI.
+1. **Data Warehouse** (`scripts/`, `tests/`, `docs/`) — builds the Gold layer, which exposes analytical views for **customers, products, and sales**.
+2. **Data Analytics** (`analytics/`) — 13 progressive SQL analyses that run directly on the Gold layer, from database exploration to segmentation and reusable customer/product report views.
 
 ## 🎯 Objectives
 
@@ -18,6 +19,8 @@ The Gold layer exposes analytical views for **customers, products, and sales**, 
 - Build business-ready dimensional and fact views in the Gold layer.
 - Apply a Star Schema suitable for analytical reporting.
 - Add SQL-based data quality checks across the warehouse.
+- Explore and analyze the Gold layer to answer business questions with advanced SQL.
+- Publish reusable customer and product reporting views.
 
 ## 🏗️ Architecture
 
@@ -34,7 +37,11 @@ CRM / ERP CSVs
 🥇 Gold — Business-ready analytical views
       │
       ├──────────────► BI / Dashboards
-      └──────────────► SQL Analytics
+      └──────────────► 📊 SQL Analytics (analytics/)
+                         │
+                         ▼
+                  gold.report_customers
+                  gold.report_products
 ```
 
 ### Bronze
@@ -59,6 +66,28 @@ The Gold dimension views use generated surrogate keys, while the sales fact view
 | `dim_customers` | Dimension | Customer attributes such as name, country, gender, marital status, and birthdate |
 | `dim_products` | Dimension | Product, category, subcategory, cost, product line, and start-date attributes |
 | `fact_sales` | Fact | Orders, dates, customers, products, sales amount, quantity, and price |
+
+## 📊 Data Analytics (EDA)
+
+The [`analytics/`](analytics/) folder contains the exploratory data analysis built on top of the Gold layer. Scripts are numbered and meant to be run in order:
+
+| # | Script | Focus |
+|---|---|---|
+| 01 | `01_database_exploration.sql` | Tables, schema structure, and available data |
+| 02 | `02_dimensions_exploration.sql` | Customer and product attributes |
+| 03 | `03_date_range_exploration.sql` | Available date ranges and time coverage |
+| 04 | `04_measures_exploration.sql` | Sales, orders, customers, products, and average price KPIs |
+| 05 | `05_magnitude_analysis.sql` | Business metrics by relevant dimensions |
+| 06 | `06_ranking_analysis.sql` | Top/bottom customers and products |
+| 07 | `07_change_over_time_analysis.sql` | Trends over time |
+| 08 | `08_cumulative_analysis.sql` | Running totals and moving averages |
+| 09 | `09_performance_analysis.sql` | YoY and vs-average performance |
+| 10 | `10_data_segmentation.sql` | Customer and product segments |
+| 11 | `11_part_to_whole_analysis.sql` | Category contribution to overall sales |
+| 12 | `12_report_customers.sql` | Creates the `gold.report_customers` view |
+| 13 | `13_report_products.sql` | Creates the `gold.report_products` view |
+
+See [`analytics/README.md`](analytics/README.md) for the business questions answered and SQL concepts used.
 
 ## 📚 Documentation
 
@@ -89,6 +118,7 @@ Validation scripts cover:
 - **MySQL 8.0+**
 - **SQL**
 - **MySQL Workbench**
+- **CTEs, window functions, and views** for analytics
 - **CSV**
 - **Power BI** for downstream reporting
 
@@ -96,6 +126,11 @@ Validation scripts cover:
 
 ```text
 sql-data-warehouse-project/
+│
+├── analytics/                # SQL exploratory data analysis on the Gold layer
+│   ├── scripts/              # 01–13 numbered analysis & reporting scripts
+│   ├── LICENSE
+│   └── README.md
 │
 ├── datasets/
 │   ├── source_crm/
@@ -160,6 +195,18 @@ tests/quality_check_silver.sql
 tests/quality_check_gold.sql
 ```
 
+### 6. Run the Analytics
+
+With the Gold layer in place, run the EDA scripts in numerical order:
+
+```text
+analytics/scripts/01_database_exploration.sql
+...
+analytics/scripts/13_report_products.sql
+```
+
+Scripts 12 and 13 create the `gold.report_customers` and `gold.report_products` views.
+
 ## 🔍 Skills Demonstrated
 
 - SQL data transformation
@@ -171,6 +218,9 @@ tests/quality_check_gold.sql
 - Data quality validation
 - CRM + ERP data integration
 - BI-ready data preparation
+- Exploratory data analysis with CTEs and window functions
+- Ranking, trend, cumulative, and performance analysis
+- Customer and product segmentation
 
 ## 📈 Reporting Use Cases
 
@@ -184,4 +234,4 @@ The Gold model supports analysis of:
 
 ## 📄 License
 
-This project is intended for educational and portfolio purposes and is distributed under the included license.
+This project is intended for educational and portfolio purposes. The data warehouse is distributed under the root [`LICENSE`](LICENSE) (MIT); the `analytics/` folder keeps its original [`LICENSE`](analytics/LICENSE) (GPL-3.0).
