@@ -7,7 +7,9 @@
 
 An end-to-end analytics project built entirely in **MySQL 8.0+**. Raw CRM and ERP exports are integrated into a **Medallion data warehouse (Bronze → Silver → Gold)** and modelled as a **Star Schema**. The Star Schema then feeds a set of **SQL analyses** that answer business questions and publish reusable customer and product reports.
 
-**Headline:** 6 sources → 1 star schema: 18,484 customers, 295 products, 60,398 sales lines and $29.36M of sales. Running the full build caught and fixed 2 silent loading bugs.
+- **What I did:** Built a 3-layer MySQL data warehouse that joins 6 raw CRM and ERP files into one sales model, with 13 SQL analyses on top.
+- **What I found:** **Bikes bring in 96.5% of $29.36M in sales.** Running the full build exposed 2 silent bugs that were distorting the numbers.
+- **Why it matters:** Country and gender reports are now correct, and every change rebuilds and re-tests the warehouse automatically.
 
 **Interactive case file:** [parthdhawan921-ops.github.io/Parth_Personal/#sqlwh](https://parthdhawan921-ops.github.io/Parth_Personal/#sqlwh)
 
