@@ -13,12 +13,7 @@ An end-to-end analytics project built entirely in **MySQL 8.0+**. Raw CRM and ER
 
 **Interactive case file:** [parthdhawan921-ops.github.io/Parth_Personal/#sqlwh](https://parthdhawan921-ops.github.io/Parth_Personal/#sqlwh)
 
-```text
-CSV sources ──► 🥉 Bronze ──► 🥈 Silver ──► 🥇 Gold (Star Schema) ──► 📊 Analytics & Reports ──► BI
-  CRM + ERP      raw data      cleaned       dim_customers              13 SQL scripts            Power BI
-                                             dim_products               report_customers
-                                             fact_sales                 report_products
-```
+![The warehouse at a glance: 6 CSV files (116K rows) through Bronze, Silver and Gold layers to a star schema with 18,484 customers and 60,398 sales lines, then 13 SQL analyses; $29.36M of sales, 96.5% from bikes, 2 silent bugs fixed, 0 failing Gold checks](docs/images/warehouse_at_a_glance.png)
 
 ---
 
