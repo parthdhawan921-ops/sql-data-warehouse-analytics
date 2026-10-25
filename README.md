@@ -7,6 +7,10 @@
 
 An end-to-end analytics project built entirely in **MySQL 8.0+**. Raw CRM and ERP exports are integrated into a **Medallion data warehouse (Bronze → Silver → Gold)** and modelled as a **Star Schema**. The Star Schema then feeds a set of **SQL analyses** that answer business questions and publish reusable customer and product reports.
 
+**Headline:** 6 sources → 1 star schema: 18,484 customers, 295 products, 60,398 sales lines and $29.36M of sales. Running the full build caught and fixed 2 silent loading bugs.
+
+**Interactive case file:** [parthdhawan921-ops.github.io/Parth_Personal/#sqlwh](https://parthdhawan921-ops.github.io/Parth_Personal/#sqlwh)
+
 ```text
 CSV sources ──► 🥉 Bronze ──► 🥈 Silver ──► 🥇 Gold (Star Schema) ──► 📊 Analytics & Reports ──► BI
   CRM + ERP      raw data      cleaned       dim_customers              13 SQL scripts            Power BI
