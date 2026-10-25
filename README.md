@@ -29,6 +29,7 @@ CSV sources ──► 🥉 Bronze ──► 🥈 Silver ──► 🥇 Gold (Sta
 - [Documentation](#-documentation)
 - [Skills Demonstrated](#-skills-demonstrated)
 - [Author](#-author)
+- [Credits](#-credits)
 - [License](#-license)
 
 ---
@@ -45,6 +46,10 @@ CSV sources ──► 🥉 Bronze ──► 🥈 Silver ──► 🥇 Gold (Sta
 ---
 
 ## 🏗️ Architecture
+
+![High-level architecture: CSV sources, Bronze, Silver and Gold layers, then BI, ad-hoc SQL and machine learning](docs/images/data_architecture.png)
+
+*Architecture diagram from the [Data with Baraa data warehouse course](https://github.com/DataWithBaraa/sql-data-warehouse-project), drawn for SQL Server. This project runs the same design on MySQL 8.0.*
 
 | Layer | Object type | Load strategy | Transformations | Consumers |
 |---|---|---|---|---|
@@ -95,6 +100,10 @@ Full column definitions are in the [data catalog](docs/data_catalog.md).
 ---
 
 ## 📊 Analytics
+
+![Analytics roadmap: exploratory data analysis steps 1 to 6 and advanced analytics steps 7 to 12](docs/images/analytics_roadmap.png)
+
+*Analytics roadmap from the [Data with Baraa data analytics course](https://github.com/DataWithBaraa/sql-data-analytics-project). The 13 scripts below follow it, with reporting split into a customer report and a product report.*
 
 The [`analytics/`](analytics/) module runs on the Gold layer. Scripts are numbered and build on each other:
 
@@ -251,6 +260,17 @@ Run the scripts in this order:
 
 ---
 
+## 🙏 Credits
+
+This project is built on two MIT-licensed course projects by **Baraa Khatib Salkini** ([Data with Baraa](https://www.youtube.com/@datawithbaraa)):
+
+- [sql-data-warehouse-project](https://github.com/DataWithBaraa/sql-data-warehouse-project): the warehouse design, source datasets and architecture diagram
+- [sql-data-analytics-project](https://github.com/DataWithBaraa/sql-data-analytics-project): the analytics roadmap and EDA approach
+
+My work on top: the rebuild in MySQL 8.0, fixes for two silent loading bugs (CRLF line endings and empty prices zeroing sales), extended quality checks, the one-command build and GitHub Actions CI, and joining both projects into one repository.
+
+---
+
 ## 📄 License
 
-The data warehouse is released under the [MIT License](LICENSE). The `analytics/` module keeps its original [GPL-3.0 License](analytics/LICENSE).
+The data warehouse is released under the [MIT License](LICENSE), keeping the original copyright notice of the course project. The `analytics/` module keeps its [GPL-3.0 License](analytics/LICENSE).
